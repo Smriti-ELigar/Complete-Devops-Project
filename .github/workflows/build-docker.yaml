@@ -1,0 +1,26 @@
+name: Build and Publish image to Docker Hub
+on:
+  push:
+    branches:
+      - main
+  paths:
+    - 'api/Dockerfile'
+    - 'front-end-nextjs/Dockerfile'  
+
+jobs:
+  publish_images:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build image
+        run: |
+          docker build ./api/ -t smoothy10/devops-qr-code-api:latest
+          docker build ./front-end-nextjs/ -t smoothy10/devops-qr-code-frontend:latest
+
+      - name: push image to Docker Hub
+        run: |
+          docker login -u smoothy10 -p "${{ secrets.DOCKER_HUB_TOKEN }}"
+          docker push smoothy10/devops-qr-code-api:latest
+          docker push smoothy10/devops-qr-code-frontend:latest
