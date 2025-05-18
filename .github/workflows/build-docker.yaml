@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - main
-  paths:
+    paths:
     - 'api/Dockerfile'
     - 'front-end-nextjs/Dockerfile'  
 
