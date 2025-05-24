@@ -1,4 +1,4 @@
-# QR Code Generator Web App
+# CloudQR: Scalable QR Code Service with DevOps Pipeline
 
 A full-stack QR Code Generator web application built with **FastAPI** and **Next.js**, containerized with Docker, and deployed on **AWS EKS** using **Kubernetes** and **Terraform**. CI/CD workflows are powered by **GitHub Actions**.
 
